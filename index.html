@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veera Aakash K M | Software Developer</title>
+  <meta name="description"
+    content="Portfolio of Veera Aakash K M, aspiring software developer with a focus on AI/ML, based in Chennai.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ===== COLORS: change these to restyle the whole site ===== */
+    :root {
+      --bg: #EEF2F6;
+      --surface: #FFFFFF;
+      --ink: #12203A;
+      --muted: #55627A;
+      --line: #D5DCE6;
+      --accent: #1F4FE0;
+      --accent-ink: #FFFFFF;
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0E1626;
+      --surface: #16233A;
+      --ink: #E8EEF8;
+      --muted: #9AA9C2;
+      --line: #26375A;
+      --accent: #6B93FF;
+      --accent-ink: #0E1626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 72px
+    }
+
+    body {
+      font-family: Figtree, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 17px
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Bricolage Grotesque", Figtree, sans-serif;
+      line-height: 1.15
+    }
+
+    a {
+      color: inherit
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px
+    }
+
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line)
+    }
+
+    nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 16px
+    }
+
+    .logo {
+      font-family: "Bricolage Grotesque", sans-serif;
+      font-weight: 700;
+      text-decoration: none
+    }
+
+    .links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      font-size: 15px;
+      overflow-x: auto
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--muted);
+      white-space: nowrap
+    }
+
+    .links a:hover {
+      color: var(--ink)
+    }
+
+    #theme {
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 14px
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 72px 0 56px
+    }
+
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: center
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -.02em
+    }
+
+    .role {
+      margin: 16px 0 8px;
+      font-size: 1.15rem;
+      color: var(--accent);
+      font-weight: 600;
+      min-height: 1.7em
+    }
+
+    .hero p.lead {
+      color: var(--muted);
+      max-width: 52ch
+    }
+
+    .btns {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      border: 1px solid var(--accent)
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: var(--accent-ink)
+    }
+
+    .btn.ghost {
+      color: var(--accent)
+    }
+
+    .btn:hover {
+      opacity: .88
+    }
+
+    .eye-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px
+    }
+
+    .eye-box svg {
+      width: 100%;
+      height: auto;
+      display: block
+    }
+
+    .eye-box small {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .lid {
+      transform-origin: 100px 60px;
+      animation: blink 5s infinite
+    }
+
+    @keyframes blink {
+
+      0%,
+      92%,
+      100% {
+        transform: scaleY(1)
+      }
+
+      95% {
+        transform: scaleY(.08)
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .lid {
+        animation: none
+      }
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 56px 0;
+      border-top: 1px solid var(--line)
+    }
+
+    section h2 {
+      font-size: 1.9rem;
+      margin-bottom: 24px
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .chip {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 15px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px
+    }
+
+    .card p {
+      color: var(--muted)
+    }
+
+    .card .btns {
+      margin-top: 18px
+    }
+
+    .card .btn {
+      padding: 7px 14px;
+      font-size: 14px
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap
+    }
+
+    .row:last-child {
+      border-bottom: 0
+    }
+
+    .row b {
+      font-weight: 600
+    }
+
+    .row span {
+      color: var(--muted)
+    }
+
+    .list {
+      padding-left: 20px
+    }
+
+    .list li {
+      margin-bottom: 8px
+    }
+
+    .contact a.big {
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px
+    }
+
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center
+    }
+
+    @media (max-width:720px) {
+      .hero .wrap {
+        grid-template-columns: 1fr
+      }
+
+      .eye-box {
+        order: -1;
+        max-width: 320px
+      }
+
+      .links {
+        display: none
+      }
+
+      body {
+        font-size: 16px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a class="logo" href="#home">Aakash</a>
+      <ul class="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme" aria-label="Switch between light and dark theme">Dark mode</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="wrap">
+      <div>
+        <h1>Veera Aakash K M</h1>
+        <p class="role" id="role" aria-live="off">Software Developer</p>
+        <p class="lead">I build practical software and AI projects, from multilingual learning tools to real-time
+          computer vision. Based in Chennai.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">View projects</a>
+          <a class="btn ghost" href="resume.pdf" download>Download resume</a>
+        </div>
+      </div>
+      <!-- Eye with landmark points: a nod to the Driver Drowsiness Detection project -->
+      <div class="eye-box" aria-hidden="true">
+        <svg viewBox="0 0 200 120">
+          <g fill="none" stroke="var(--line)" stroke-width="1">
+            <path d="M10 60 Q100 -10 190 60" />
+            <path d="M10 60 Q100 130 190 60" />
+          </g>
+          <g class="lid">
+            <path d="M10 60 Q100 -10 190 60 Q100 130 10 60Z" fill="var(--bg)" stroke="var(--ink)" stroke-width="2" />
+            <circle cx="100" cy="60" r="26" fill="var(--accent)" />
+            <circle cx="100" cy="60" r="11" fill="var(--ink)" />
+            <circle cx="93" cy="52" r="4" fill="var(--bg)" />
+          </g>
+          <g fill="var(--accent)">
+            <circle cx="10" cy="60" r="3" />
+            <circle cx="55" cy="30" r="3" />
+            <circle cx="100" cy="21" r="3" />
+            <circle cx="145" cy="30" r="3" />
+            <circle cx="190" cy="60" r="3" />
+            <circle cx="145" cy="90" r="3" />
+            <circle cx="100" cy="99" r="3" />
+            <circle cx="55" cy="90" r="3" />
+          </g>
+        </svg>
+        <small>Facial landmarks, as used in drowsiness detection</small>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>About me</h2>
+      <p style="max-width:62ch">I'm an aspiring software developer with knowledge in Java, Python, DBMS, HTML and CSS. I
+        enjoy learning new technologies and building efficient solutions, and I'm looking for an opportunity to grow my
+        technical skills and contribute in a dynamic work environment.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <h3 style="font-size:1rem;margin-bottom:10px">Technical</h3>
+      <div class="chips"><span class="chip">Java</span><span class="chip">Python</span><span
+          class="chip">DBMS</span><span class="chip">HTML</span><span class="chip">CSS</span></div>
+      <h3 style="font-size:1rem;margin:22px 0 10px">Soft skills</h3>
+      <div class="chips"><span class="chip">Problem-solving</span><span class="chip">Team collaboration</span><span
+          class="chip">Communication</span><span class="chip">Adaptability</span></div>
+      <h3 style="font-size:1rem;margin:22px 0 10px">Languages</h3>
+      <div class="chips"><span class="chip">Tamil</span><span class="chip">English</span></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Eduspeak</h3>
+          <p>A PDF summarizer and translator built with Streamlit. It extracts text from PDFs, creates concise summaries
+            using Gemini AI, and translates the content into regional languages so students can learn in their own
+            language.</p>
+          <div class="btns"><a class="btn ghost" href="https://github.com/veeraaakash/Eduspeak" target="_blank"
+              rel="noopener">View on GitHub</a></div>
+        </article>
+        <article class="card">
+          <h3>Driver Drowsiness Detection</h3>
+          <p>An AI-based safety system that tracks a driver's facial features and eye movements in real time using
+            computer vision, with OpenCV and dlib facial landmarks, and detects signs of fatigue.</p>
+          <div class="btns"><a class="btn ghost" href="https://github.com/veeraaakash/Driver-Drowsiness-Detection"
+              target="_blank" rel="noopener">View on GitHub</a></div>
+        </article>
+        <article class="card">
+          <h3>VoxGuard AI</h3>
+          <p>An AI-powered voice fraud detection system that identifies AI-generated and spoofed voices during phone
+            calls. It analyzes speech features in real time and calculates a trust score.</p>
+          <div class="btns"><a class="btn ghost" href="https://github.com/veeraaakash/VoxGuard---AI" target="_blank"
+              rel="noopener">View on GitHub</a></div>
+        </article>
+        <article class="card">
+          <h3>Inferaboard</h3>
+          <p>An AI-powered dashboard generation platform that turns raw data into interactive dashboards and actionable
+            insights. It supports data upload and automatic preprocessing.</p>
+          <div class="btns"><a class="btn ghost" href="https://github.com/veeraaakash/Inferaboard" target="_blank"
+              rel="noopener">View on GitHub</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <div class="card">
+        <h3>AI Intern, Retech Solutions</h3>
+        <p>Worked on real-world AI modules, focusing on data preprocessing, model validation and result testing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <div class="card">
+        <div class="row">
+          <div><b>B.Tech, Information Technology</b><br><span>SRM Valliammai Engineering College</span></div><span>2022
+            to 2026 &middot; CGPA 9.01</span>
+        </div>
+        <div class="row">
+          <div><b>HSC</b><br><span>TMHNU Matriculation Hr Sec School</span></div><span>2021 to 2022 &middot;
+            92.6%</span>
+        </div>
+        <div class="row">
+          <div><b>SSLC</b><br><span>TMHNU Matriculation Hr Sec School</span></div><span>2019 to 2020 &middot;
+            96.2%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="wrap">
+      <h2>Achievements and leadership</h2>
+      <ul class="list">
+        <li>Secured 1st prize; took part in hackathons and technical symposiums.</li>
+        <li>Certified in "Completion of C Training", conducted by IIT Bombay.</li>
+        <li>Organized a technical event at the CSI Kancheepuram branch.</li>
+        <li>Led a mini project team in college.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p style="margin-bottom:16px">Open to opportunities. The quickest way to reach me:</p>
+      <a class="big" href="mailto:aakashveera12305@gmail.com">aakashveera12305@gmail.com</a>
+      <a class="big" href="tel:+919342826426">+91 93428 26426</a>
+      <div class="btns">
+        <a class="btn ghost" href="#">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/veeraaakash" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>&copy; <span id="year"></span> Veera Aakash K M</footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Light/dark toggle (remembers your choice when the browser allows it)
+    const root = document.documentElement, btn = document.getElementById('theme');
+    function setTheme(t) {
+      root.setAttribute('data-theme', t);
+      btn.textContent = t === 'dark' ? 'Light mode' : 'Dark mode';
+      try { localStorage.setItem('theme', t); } catch (e) { }
+    }
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) { }
+    setTheme(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+    btn.addEventListener('click', () => setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+    // Rotating role text under the name (edit the list to change it)
+    const roles = ['Software Developer', 'AI/ML Enthusiast', 'Python and Java Programmer'];
+    const el = document.getElementById('role');
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let i = 0;
+      setInterval(() => { i = (i + 1) % roles.length; el.textContent = roles[i]; }, 2600);
+    }
+  </script>
+</body>
+
+</html>
